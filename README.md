@@ -2,7 +2,7 @@
 
 # PoloCloud Gradle Module Plugin
 
-[![License](https://img.shields.io/github/license/HttpMarco/polocloud?style=for-the-badge&color=b2204c)](./LICENSE)
+[![License](https://img.shields.io/github/license/thePolocloud/polocloud-module-gradle-plugin?style=for-the-badge&color=b2204c)](LICENSE)
 
 </div>
 
