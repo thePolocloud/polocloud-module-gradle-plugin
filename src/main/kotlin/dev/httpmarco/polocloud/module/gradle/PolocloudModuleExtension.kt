@@ -117,6 +117,6 @@ abstract class PolocloudModuleExtension(private val project: Project) {
     init {
         descriptionProperty.convention("")
         loadOrderProperty.convention(LoadOrder.STARTUP)
-        apiVersionProperty.convention(">=3.0.0-pre.7-SNAPSHOT")
+        apiVersionProperty.convention(">=3.0.0-pre.8-SNAPSHOT")
     }
 }
