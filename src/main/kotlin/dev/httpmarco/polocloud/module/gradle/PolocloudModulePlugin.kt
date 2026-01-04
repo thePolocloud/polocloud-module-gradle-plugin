@@ -56,7 +56,7 @@ class PolocloudModulePlugin : Plugin<Project> {
                 project.logger.lifecycle("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
                 project.logger.lifecycle("  Module ID:   ${extension.idProperty.getOrElse("unknown")}")
                 project.logger.lifecycle("  Name:        ${extension.moduleNameProperty.getOrElse("unknown")}")
-                project.logger.lifecycle("  Version:     ${extension.versionProperty}")
+                project.logger.lifecycle("  Version:     ${extension.versionProperty.getOrElse("unknown")}")
                 project.logger.lifecycle("  Output:      ${outputFile.absolutePath}")
                 project.logger.lifecycle("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
                 project.logger.lifecycle("")
