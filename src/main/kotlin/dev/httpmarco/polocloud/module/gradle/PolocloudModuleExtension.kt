@@ -1,0 +1,116 @@
+package dev.httpmarco.polocloud.module.gradle
+
+import org.gradle.api.Project
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Optional
+
+/**
+ * Extension for configuring PoloCloud module metadata in build.gradle.kts.
+ *
+ * Example usage:
+ * ```kotlin
+ * polocloudModule {
+ *     id = "my-module"
+ *     moduleName = "My Module"
+ *     description = "A module that does cool things"
+ *     author = "YourName"
+ *     mainClass = "com.example.MyModule"
+ *
+ *     // Optional
+ *     loadOrder = "STARTUP"
+ *     apiVersion = ">=3.0.0-pre.7-SNAPSHOT"
+ *
+ * }
+ * ```
+ */
+abstract class PolocloudModuleExtension(private val project: Project) {
+
+    /**
+     * Unique identifier for the module (e.g., "example-module").
+     * This should be lowercase with hyphens.
+     */
+    @get:Input
+    abstract val idProperty: Property<String>
+
+    /**
+     * Unique identifier for the module (e.g., "example-module").
+     * This should be lowercase with hyphens.
+     */
+    @get:Input
+    abstract val versionProperty: Property<String>
+
+    /**
+     * Human-readable name of the module (e.g., "Example Module").
+     */
+    @get:Input
+    abstract val moduleNameProperty: Property<String>
+
+    /**
+     * Description of what the module does.
+     */
+    @get:Input
+    @get:Optional
+    abstract val descriptionProperty: Property<String>
+
+    /**
+     * Author of the module.
+     */
+    @get:Input
+    abstract val authorProperty: Property<String>
+
+    /**
+     * Fully qualified main class that implements PolocloudModule.
+     */
+    @get:Input
+    abstract val mainClassProperty: Property<String>
+
+    /**
+     * Load order of the module.
+     * Valid values: STARTUP, POST_STARTUP, LATE
+     * Default: STARTUP
+     */
+    @get:Input
+    @get:Optional
+    abstract val loadOrderProperty: Property<LoadOrder>
+
+    /**
+     * API version this module was built for.
+     * Default: >=3.0.0-pre.7-SNAPSHOT
+     */
+    @get:Input
+    @get:Optional
+    abstract val apiVersionProperty: Property<String>
+
+    var id: String
+        get() = idProperty.orNull ?: ""
+        set(value) = idProperty.set(value)
+
+    var version: String
+        get() = versionProperty.orNull ?: ""
+        set(value) = versionProperty.set(value)
+
+    var moduleName: String
+        get() = moduleNameProperty.orNull ?: project.name
+        set(value) = moduleNameProperty.set(value)
+
+    var description: String
+        get() = descriptionProperty.orNull ?: ""
+        set(value) = descriptionProperty.set(value)
+
+    var author: String
+        get() = authorProperty.orNull ?: ""
+        set(value) = authorProperty.set(value)
+
+    var mainClass: String
+        get() = mainClassProperty.orNull ?: ""
+        set(value) = mainClassProperty.set(value)
+
+    var loadOrder: LoadOrder
+        get() = loadOrderProperty.orNull ?: LoadOrder.STARTUP
+        set(value) = loadOrderProperty.set(value)
+
+    var apiVersion: String
+        get() = apiVersionProperty.orNull ?: ">=3.0.0-pre.7-SNAPSHOT"
+        set(value) = apiVersionProperty.set(value)
+}
