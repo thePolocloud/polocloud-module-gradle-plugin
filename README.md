@@ -1,4 +1,10 @@
+<div align="center">
+
 # PoloCloud Gradle Module Plugin
+
+[![License](https://img.shields.io/github/license/HttpMarco/polocloud?style=for-the-badge&color=b2204c)](./LICENSE)
+
+</div>
 
 A custom Gradle plugin for building **PoloCloud** modules with automatic metadata generation and packaging.
 
@@ -7,6 +13,20 @@ This plugin simplifies module creation by automatically:
 - Generating a `module.json` file based on your Gradle configuration.
 - Packaging the metadata file into your module’s JAR.
 - Providing a dedicated Gradle task for module building.
+
+
+---
+
+## 📘 Contents
+
+1. [Features](#-features)
+2. [Installation](#-installation)
+3. [Configuration](#-configuration)
+4. [Building your module](#-building-your-module)
+5. [Output structure](#-output-structure)
+6. [Validation](#-validation)
+7. [Load orders](#-load-orders)
+8. [License](#-license)
 
 ---
 
@@ -145,3 +165,11 @@ You can control when your module loads within PoloCloud:
 
 This project is licensed under the Apache License 2.0.
 See at [LICENSE](LICENSE).
+
+<div align="center">
+
+<a href="https://discord.polocloud.de">
+    <img alt="PoloCloud Discord" src="https://discord.com/api/guilds/1278460874679386244/widget.png?style=banner2">
+</a>
+
+</div>
