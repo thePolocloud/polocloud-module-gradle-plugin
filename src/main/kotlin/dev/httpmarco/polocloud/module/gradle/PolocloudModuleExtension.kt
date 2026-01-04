@@ -18,7 +18,7 @@ import org.gradle.api.tasks.Optional
  *     mainClass = "com.example.MyModule"
  *
  *     // Optional
- *     loadOrder = "STARTUP"
+ *     loadOrder = LoadOrder.STARTUP
  *     apiVersion = ">=3.0.0-pre.7-SNAPSHOT"
  *
  * }
