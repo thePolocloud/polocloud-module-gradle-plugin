@@ -83,34 +83,40 @@ abstract class PolocloudModuleExtension(private val project: Project) {
     abstract val apiVersionProperty: Property<String>
 
     var id: String
-        get() = idProperty.orNull ?: ""
+        get() = idProperty.get()
         set(value) = idProperty.set(value)
 
     var version: String
-        get() = versionProperty.orNull ?: ""
+        get() = versionProperty.get()
         set(value) = versionProperty.set(value)
 
     var moduleName: String
-        get() = moduleNameProperty.orNull ?: project.name
+        get() = moduleNameProperty.get()
         set(value) = moduleNameProperty.set(value)
 
     var description: String
-        get() = descriptionProperty.orNull ?: ""
+        get() = descriptionProperty.get()
         set(value) = descriptionProperty.set(value)
 
     var author: String
-        get() = authorProperty.orNull ?: ""
+        get() = authorProperty.get()
         set(value) = authorProperty.set(value)
 
     var mainClass: String
-        get() = mainClassProperty.orNull ?: ""
+        get() = mainClassProperty.get()
         set(value) = mainClassProperty.set(value)
 
     var loadOrder: LoadOrder
-        get() = loadOrderProperty.orNull ?: LoadOrder.STARTUP
+        get() = loadOrderProperty.get()
         set(value) = loadOrderProperty.set(value)
 
     var apiVersion: String
-        get() = apiVersionProperty.orNull ?: ">=3.0.0-pre.7-SNAPSHOT"
+        get() = apiVersionProperty.get()
         set(value) = apiVersionProperty.set(value)
+
+    init {
+        descriptionProperty.convention("")
+        loadOrderProperty.convention(LoadOrder.STARTUP)
+        apiVersionProperty.convention(">=3.0.0-pre.7-SNAPSHOT")
+    }
 }
