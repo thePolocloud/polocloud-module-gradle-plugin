@@ -4,6 +4,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import com.google.gson.GsonBuilder
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.*
 import java.io.File
@@ -72,13 +73,28 @@ class PolocloudModulePlugin : Plugin<Project> {
             description = "Builds a shaded PoloCloud module JAR with all dependencies"
             dependsOn("buildModule")
 
+            from(project.tasks.named<Jar>("jar").get().archiveFile.map { project.zipTree(it) })
+
+            doFirst {
+                validateConfiguration(project, extension)
+                val metadata = generateModuleMetadata(project, extension)
+                val metadataFile = File(project.buildDir, "tmp/module.json")
+                metadataFile.parentFile.mkdirs()
+                metadataFile.writeText(metadata)
+            }
+
+            from(File(project.buildDir, "tmp/module.json")) { into("/") }
+
             archiveFileName.set("polocloud-${extension.idProperty.get()}-${extension.versionProperty.get()}-shaded.jar")
 
-            val jarTask = project.tasks.named<Jar>("jar").get()
-            from(jarTask.archiveFile.map { project.zipTree(it) })
+            exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA",
+                "META-INF/*.EC", "META-INF/*.pgp", "META-INF/*.sign*")
 
             configurations = listOf(project.configurations.getByName("runtimeClasspath"))
+
             mergeServiceFiles()
+
+            duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
             doLast {
                 val outputFile = archiveFile.get().asFile
