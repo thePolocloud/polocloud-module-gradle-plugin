@@ -34,8 +34,8 @@ abstract class PolocloudModuleExtension(private val project: Project) {
     abstract val idProperty: Property<String>
 
     /**
-     * Unique identifier for the module (e.g., "example-module").
-     * This should be lowercase with hyphens.
+     * Version of the module (e.g., "1.0.0" or "1.0.0-SNAPSHOT").
+     * This should follow semantic versioning.
      */
     @get:Input
     abstract val versionProperty: Property<String>
