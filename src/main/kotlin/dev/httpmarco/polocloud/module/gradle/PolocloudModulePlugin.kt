@@ -1,5 +1,6 @@
 package dev.httpmarco.polocloud.module.gradle
 
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import com.google.gson.GsonBuilder
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -22,6 +23,7 @@ class PolocloudModulePlugin : Plugin<Project> {
         project.plugins.apply("java")
         configureJarTask(project, extension)
         registerBuildModuleTask(project, extension)
+        registerShadowBuildModuleTask(project, extension)
     }
 
     private fun configureJarTask(project: Project, extension: PolocloudModuleExtension) {
@@ -59,6 +61,37 @@ class PolocloudModulePlugin : Plugin<Project> {
                 project.logger.lifecycle("  Version:     ${extension.versionProperty.getOrElse("unknown")}")
                 project.logger.lifecycle("  Output:      ${outputFile.absolutePath}")
                 project.logger.lifecycle("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+                project.logger.lifecycle("")
+            }
+        }
+    }
+
+    private fun registerShadowBuildModuleTask(project: Project, extension: PolocloudModuleExtension) {
+        project.tasks.register<ShadowJar>("shadowBuildModule") {
+            group = "polocloud"
+            description = "Builds a shaded PoloCloud module JAR with all dependencies"
+            dependsOn("buildModule")
+
+            archiveFileName.set("polocloud-${extension.idProperty.get()}-${extension.versionProperty.get()}-shaded.jar")
+
+            val jarTask = project.tasks.named<Jar>("jar").get()
+            from(jarTask.archiveFile.map { project.zipTree(it) })
+
+            configurations = listOf(project.configurations.getByName("runtimeClasspath"))
+            mergeServiceFiles()
+
+            doLast {
+                val outputFile = archiveFile.get().asFile
+
+                project.logger.lifecycle("")
+                project.logger.lifecycle("┌─────────────────────────────────────────────┐")
+                project.logger.lifecycle("│ ✓ Shaded PoloCloud Module built!           │")
+                project.logger.lifecycle("└─────────────────────────────────────────────┘")
+                project.logger.lifecycle("  Module ID:   ${extension.idProperty.getOrElse("unknown")}")
+                project.logger.lifecycle("  Name:        ${extension.moduleNameProperty.getOrElse("unknown")}")
+                project.logger.lifecycle("  Version:     ${extension.versionProperty.getOrElse("unknown")}")
+                project.logger.lifecycle("  Output:      ${outputFile.absolutePath}")
+                project.logger.lifecycle("└─────────────────────────────────────────────┘")
                 project.logger.lifecycle("")
             }
         }

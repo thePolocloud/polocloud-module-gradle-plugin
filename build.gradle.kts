@@ -5,6 +5,7 @@ plugins {
     signing
 
     alias(libs.plugins.nexus.publish)
+    alias(libs.plugins.shadow)
 }
 
 group = "dev.httpmarco.polocloud"
@@ -21,6 +22,7 @@ repositories {
 
 dependencies {
     implementation(libs.gson)
+    implementation(libs.shadow)
 }
 
 gradlePlugin {

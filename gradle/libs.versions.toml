@@ -1,11 +1,14 @@
 [versions]
 nexus-publish = "2.0.0"
+shadow = "9.2.2"
 
 # libraries
 gson = "2.13.2"
 
 [libraries]
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+shadow = { group = "com.gradleup.shadow", name = "shadow-gradle-plugin", version.ref = "shadow" }
 
 [plugins]
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
