@@ -76,7 +76,7 @@ abstract class PolocloudModuleExtension(private val project: Project) {
 
     /**
      * API version this module was built for.
-     * Default: >=3.0.0-pre.7-SNAPSHOT
+     * Default: >=3.0.0-pre.8-SNAPSHOT
      */
     @get:Input
     @get:Optional
