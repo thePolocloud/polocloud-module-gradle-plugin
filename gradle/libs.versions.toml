@@ -1,6 +1,6 @@
 [versions]
 nexus-publish = "2.0.0"
-shadow = "9.2.2"
+shadow = "9.3.1"
 
 # libraries
 gson = "2.13.2"
