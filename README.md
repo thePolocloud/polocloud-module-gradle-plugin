@@ -68,7 +68,7 @@ polocloudModule {
 
     // Optional
     loadOrder = LoadOrder.STARTUP
-    apiVersion = ">=3.0.0-pre.7-SNAPSHOT" //TODO link version checker
+    apiVersion = ">=3.0.0-pre.7-SNAPSHOT"
 }
 ```
 
@@ -84,11 +84,11 @@ polocloudModule {
 
 ### Optional fields
 
-| Field       | Description                                                        |
-| ----------- | ------------------------------------------------------------------ |
-| `description` | Description of your module.                                        |
-| `loadOrder`   | Defines when the module should load (`STARTUP`, `POST_STARTUP`, `LATE`). |
-| `apiVersion`  | Target PoloCloud API version.                                      |
+| Field       | Description                                                                                                                                                                                                   |
+| ----------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `description` | Description of your module.                                                                                                                                                                                   |
+| `loadOrder`   | Defines when the module should load (`STARTUP`, `POST_STARTUP`, `LATE`).                                                                                                                                      |
+| `apiVersion`  | Target PoloCloud API version. For valid formats take a look at [here](https://github.com/thePolocloud/polocloud/tree/master/common/src/main/kotlin/dev/httpmarco/polocloud/common/version/VersionChecker.kt). |
 
 ---
 
