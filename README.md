@@ -23,10 +23,11 @@ This plugin simplifies module creation by automatically:
 2. [Installation](#-installation)
 3. [Configuration](#-configuration)
 4. [Building your module](#-building-your-module)
-5. [Output structure](#-output-structure)
-6. [Validation](#-validation)
-7. [Load orders](#-load-orders)
-8. [License](#-license)
+5. [Building a shaded module (Shadow)](#-building-a-shaded-module-shadow)
+6. [Output structure](#-output-structure)
+7. [Validation](#-validation)
+8. [Load orders](#-load-orders)
+9. [License](#-license)
 
 ---
 
