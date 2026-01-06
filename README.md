@@ -120,6 +120,30 @@ Output:      /path/to/project/build/libs/my-module-1.0.0.jar
 
 ---
 
+## 🏗️ Building a shaded module (Shadow)
+
+If your module depends on external libraries, you can build a shaded JAR using Shadow:
+```bash
+polocloud > shadowBuildModule
+```
+
+This does everything the normal build does, plus:
+- Shades all dependencies into the final JAR
+
+Additional output:
+```text
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ Shaded PoloCloud Module built!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Module ID:   my-module
+Name:        My Module
+Version:     1.0.0
+Output:      /path/to/project/build/libs/my-module-1.0.0.jar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
 ## 📦 Output Structure
 
 The resulting JAR file will contain your compiled module code along with an automatically generated `module.json`, for example:
