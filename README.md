@@ -12,10 +12,7 @@ This plugin simplifies module creation by automatically:
 - Validating required metadata fields.
 - Generating a `module.json` file based on your Gradle configuration.
 - Packaging the metadata file into your module’s JAR.
-- Providing a dedicated Gradle task for module building.
-
-
-# 
+- Providing a dedicated Gradle task for module building. 
 
 ## 📘 Contents
 
@@ -29,8 +26,6 @@ This plugin simplifies module creation by automatically:
 8. [Load orders](#-load-orders)
 9. [License](#-license)
 
-# 
-
 ## 💡 Features
 
 - **Automatic module metadata generation** (`module.json`).
@@ -38,8 +33,6 @@ This plugin simplifies module creation by automatically:
 - **Custom Gradle tasks** for simplified building.
 - **Flexible configuration** via Gradle Kotlin DSL.
 - **Seamless integration** with the Java plugin.
-
-# 
 
 ## ⚙️ Installation
 
@@ -51,8 +44,6 @@ plugins {
 }
 ```
 (Replace `3.0.0-pre.8-SNAPSHOT` with the current version of the plugin.)
-
-# 
 
 ## 🧩 Configuration
 
@@ -91,8 +82,6 @@ polocloudModule {
 | `loadOrder`   | Defines when the module should load (`STARTUP`, `POST_STARTUP`, `LATE`).                                                                                                                                      |
 | `apiVersion`  | Target PoloCloud API version. For valid formats take a look at [here](https://github.com/thePolocloud/polocloud/tree/master/common/src/main/kotlin/dev/httpmarco/polocloud/common/version/VersionChecker.kt). |
 
-# 
-
 ## 🏗️ Building your module
 
 Run the following task to build your module:
@@ -119,8 +108,6 @@ Output:      /path/to/project/build/libs/my-module-1.0.0.jar
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-# 
-
 ## 🏗️ Building a shaded module (Shadow)
 
 If your module depends on external libraries, you can build a shaded JAR using Shadow:
@@ -143,8 +130,6 @@ Output:      /path/to/project/build/libs/my-module-1.0.0.jar
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-# 
-
 ## 📦 Output Structure
 
 The resulting JAR file will contain your compiled module code along with an automatically generated `module.json`, for example:
@@ -162,8 +147,6 @@ The resulting JAR file will contain your compiled module code along with an auto
 }
 ```
 
-# 
-
 ## 🔍 Validation
 If required properties are missing (such as `id` or `mainClass`), the build will fail with an informative error message like:
 ```text
@@ -171,8 +154,6 @@ PoloCloud module configuration is incomplete:
 - Module ID is required
 - Main class is required
 ```
-
-# 
 
 ## 🧠 Load Orders
 
@@ -183,8 +164,6 @@ You can control when your module loads within PoloCloud:
 | `STARTUP`      | Load during initial startup (default).                |
 | `POST_STARTUP` | Load after all STARTUP modules have been initialized. |
 | `LATE`         | Load last, after the entire system is ready.          |
-
-# 
 
 ## 🪪 License
 
