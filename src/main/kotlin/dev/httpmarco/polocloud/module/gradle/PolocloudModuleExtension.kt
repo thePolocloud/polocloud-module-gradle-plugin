@@ -12,6 +12,7 @@ import org.gradle.api.tasks.Optional
  * ```kotlin
  * polocloudModule {
  *     id = "my-module"
+ *     version = "1.0.0"
  *     moduleName = "My Module"
  *     description = "A module that does cool things"
  *     author = "YourName"
