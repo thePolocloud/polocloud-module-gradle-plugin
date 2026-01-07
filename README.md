@@ -15,7 +15,7 @@ This plugin simplifies module creation by automatically:
 - Providing a dedicated Gradle task for module building.
 
 
----
+# 
 
 ## 📘 Contents
 
@@ -29,7 +29,7 @@ This plugin simplifies module creation by automatically:
 8. [Load orders](#-load-orders)
 9. [License](#-license)
 
----
+# 
 
 ## 💡 Features
 
@@ -39,7 +39,7 @@ This plugin simplifies module creation by automatically:
 - **Flexible configuration** via Gradle Kotlin DSL.
 - **Seamless integration** with the Java plugin.
 
----
+# 
 
 ## ⚙️ Installation
 
@@ -52,7 +52,7 @@ plugins {
 ```
 (Replace `3.0.0-pre.8-SNAPSHOT` with the current version of the plugin.)
 
----
+# 
 
 ## 🧩 Configuration
 
@@ -91,7 +91,7 @@ polocloudModule {
 | `loadOrder`   | Defines when the module should load (`STARTUP`, `POST_STARTUP`, `LATE`).                                                                                                                                      |
 | `apiVersion`  | Target PoloCloud API version. For valid formats take a look at [here](https://github.com/thePolocloud/polocloud/tree/master/common/src/main/kotlin/dev/httpmarco/polocloud/common/version/VersionChecker.kt). |
 
----
+# 
 
 ## 🏗️ Building your module
 
@@ -119,7 +119,7 @@ Output:      /path/to/project/build/libs/my-module-1.0.0.jar
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
----
+# 
 
 ## 🏗️ Building a shaded module (Shadow)
 
@@ -143,7 +143,7 @@ Output:      /path/to/project/build/libs/my-module-1.0.0.jar
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
----
+# 
 
 ## 📦 Output Structure
 
@@ -162,7 +162,7 @@ The resulting JAR file will contain your compiled module code along with an auto
 }
 ```
 
----
+# 
 
 ## 🔍 Validation
 If required properties are missing (such as `id` or `mainClass`), the build will fail with an informative error message like:
@@ -172,7 +172,7 @@ PoloCloud module configuration is incomplete:
 - Main class is required
 ```
 
----
+# 
 
 ## 🧠 Load Orders
 
@@ -184,7 +184,7 @@ You can control when your module loads within PoloCloud:
 | `POST_STARTUP` | Load after all STARTUP modules have been initialized. |
 | `LATE`         | Load last, after the entire system is ready.          |
 
----
+# 
 
 ## 🪪 License
 
